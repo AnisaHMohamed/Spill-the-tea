@@ -41,6 +41,11 @@ export const getTweetsForUser = (id) => {
     `SELECT * FROM tweets WHERE user_id = $1;`,[id]
   )
  };
+ export const getTweetsForUserFollowing = (id) => {
+  return db.query(
+    `SELECT tweets.* FROM relationships join users on following_id = users.id join tweets on tweets.user_id = users.id  WHERE follower_id = $1;`,[id]
+  )
+ };
  export const createNewTweet = (content, user_id) => {
   return db.query(
     ` INSERT INTO tweets (
@@ -60,6 +65,11 @@ export const getTweetsForUser = (id) => {
     `SELECT users.* FROM relationships join users on following_id = users.id  WHERE follower_id = $1;`,[id]
   )
  };
+ export const getFollowingForUser = (id) => {
+  return db.query(
+    ` SELECT users.* FROM relationships join users on users.id = follower_id  WHERE following_id = $1;`,[id]
+  )
+ };
 
  export const unFollowerUser = (user_id, id_to_unfollow) => {
   return db.query(
@@ -73,7 +83,7 @@ export const getTweetsForUser = (id) => {
   )
  };
 
- export const followerUser = (user_id, id_to_follow) => {
+ export const followUser = (user_id, id_to_follow) => {
   return db.query(
       ` INSERT INTO relationships (
         follower_id, following_id,created_at
