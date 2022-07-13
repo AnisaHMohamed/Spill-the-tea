@@ -1,0 +1,12 @@
+{
+  "name": "spill-the-tea-react",
+  "version": "1.0.0",
+  "description": "Spill the tea is a revamped twitter clone I initially made in jquery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd client,  npm start\" \"cd server, npm run local\""
+  },
+  "author": "",
+  "license": "ISC"
+}
