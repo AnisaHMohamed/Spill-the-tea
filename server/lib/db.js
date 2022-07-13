@@ -17,6 +17,15 @@ import pkg from 'pg';
 const db = new Pool(dbParams);
 db.connect();
 
+export const getUserDetails = (email) => {
+  return db.query(
+    `SELECT id, email, password, type
+      FROM users
+      WHERE email = $1;`,
+    [email]
+  );
+};
+
 export const getTweets = () => {
 return db.query(
   `SELECT * FROM tweets;`,

@@ -32,8 +32,16 @@ app.use(cookieSession({
   app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
   });
-
-
+// register user
+  app.get("/register", (request, response) => {
+   
+  console.log('register')
+  });
+  // login user
+  app.get("/login", (request, response) => {
+   
+    console.log('login')
+    });
   //get all tweets
   app.get("/tweets", (request, response) => {
     request.session.user_id  = 343
