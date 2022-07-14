@@ -25,7 +25,26 @@ export const getUserDetails = (email) => {
     [email]
   );
 };
-
+export const getEmail = (email) => {
+  return db.query(
+    `SELECT email
+  FROM users
+  WHERE email = $1;`,
+    [email]
+  );
+};
+export const createUser = (
+  name,
+  username,
+  email,
+  hashedPassword,
+ 
+) => {
+  return db.query(
+    `INSERT INTO users(name, username, email, password, created_at) VALUES($1,$2,$3,$4,NOW()) RETURNING *;`,
+    [name, username,  email, hashedPassword]
+  );
+};
 export const getTweets = () => {
 return db.query(
   `SELECT * FROM tweets;`,
