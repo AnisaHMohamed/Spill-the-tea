@@ -10,9 +10,7 @@ import {
   chakra,
   Box,
   Link,
-  Avatar,
   FormControl,
-  FormHelperText,
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock, FaCoffee } from "react-icons/fa";
@@ -71,7 +69,7 @@ const App = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input type="email" placeholder="Email address" name="email" onChange={(event) => setEmail(event.target.value)}/>
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -84,6 +82,8 @@ const App = () => {
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
+                    name="password"
+                    onChange={(event) => setPassword(event.target.value)}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
@@ -107,8 +107,10 @@ const App = () => {
       </Stack>
       <Box>
         New to us?{" "}
-        <Link color="teal.500" href="#">
+        <Link color="teal.500" href="/register">
           Sign Up
+
+     
         </Link>
       </Box>
     </Flex>

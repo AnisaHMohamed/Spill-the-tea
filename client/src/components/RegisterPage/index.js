@@ -129,7 +129,7 @@ const App = () => {
       </Stack>
       <Box>
         Already have an account?{" "}
-        <Link color="teal.500" href="#">
+        <Link color="teal.500" href="/login">
           Sign in
         </Link>
       </Box>
