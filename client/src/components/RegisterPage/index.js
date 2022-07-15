@@ -34,10 +34,10 @@ const App = () => {
     axios.post('/register', {
         email, name, password, username
       })
-      .then(function (response) {
+      .then((response) =>{
         console.log(response);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
 }
@@ -47,9 +47,14 @@ const App = () => {
       flexDirection="column"
       width="100wh"
       height="100vh"
-      backgroundColor="gray.200"
+      backgroundColor="#fafbfd"
       justifyContent="center"
       alignItems="center"
+      backgroundImage={
+        "url('https://images.unsplash.com/photo-1562534104-6b964ad63e56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHRlYXxlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60')"
+      }
+      backgroundRepeat="no-repeat"
+      backgroundSize=" 100% 100%"
     >
       <Stack
         flexDir="column"
@@ -58,11 +63,11 @@ const App = () => {
         alignItems="center"
       >
       <Flex>
-      <Heading color="teal.400" mr="20px">
-        Spill the tea
+      <Heading color="orange.400" mr="20px">
+      Spill the tea
       </Heading>
-      <CFaCoffee color="teal.500" h="48px" w="48px" />
-    </Flex>
+      <CFaCoffee color="orange.500" h="48px" w="48px" />
+      </Flex>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form onSubmit={registerNewUser}>
             <Stack
@@ -122,7 +127,7 @@ const App = () => {
                 borderRadius={0}
                 type="submit"
                 variant="solid"
-                colorScheme="teal"
+                colorScheme="orange"
                 width="full"
               >
                 Register
@@ -131,9 +136,9 @@ const App = () => {
           </form>
         </Box>
       </Stack>
-      <Box>
+      <Box color="orange.200" >
         Already have an account?{" "}
-        <Link color="teal.500" href="/login">
+        <Link color="orange.500" href="/login">
           Sign in
         </Link>
       </Box>
