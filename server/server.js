@@ -1,18 +1,12 @@
-// require("dotenv").config();
-//express server
 import express from "express"
 const app = express();
 const PORT = process.env.PORT || 8080;
 import bodyParser from "body-parser";
 import morgan from "morgan"
 import cors from "cors"
-// const bcrypt from "bcrypt"
+import bcrypt from "bcrypt"
 import cookieSession from "cookie-session"
-// import Pool  from "pg"
-// import dbParams from "./lib/db.js"
-// // import axios from "axios"
-//  import db from "./lib/db.js"
-import {getTweets, getEmail,createUser} from  './lib/db.js'
+import {getTweets, getEmail,createUser, login} from  './lib/db.js'
 
 
 
@@ -33,7 +27,7 @@ app.use(cookieSession({
     console.log(`Example app listening on port ${PORT}`);
   });
 // register user
-  app.get("/register", (request, response) => {
+  app.post("/register", (request, response) => {
    //POST Register
     const email = request.body.email;
     const password = request.body.password;
@@ -52,16 +46,11 @@ app.use(cookieSession({
        
           createUser(
             request.body.name,
-            request.body.address,
-            request.body.phone,
+            request.body.username,
             request.body.email,
             hashedPassword,
-            request.body.type,
-            lat,
-            lng
             ).then(data => {
               const newUser = data.rows[0];
-              // eslint-disable-next-line camelcase
               request.session.user_id = newUser.id;
               response.json({ user: newUser });
               return true;
@@ -74,10 +63,30 @@ app.use(cookieSession({
   console.log('register')
   });
   // login user
-  app.get("/login", (request, response) => {
-   
-    console.log('login')
+  app.post("/login", (request, response) => {
+      // check if user exists in database
+      login(request.body.email)
+      .then(data => {
+        const user = data.rows[0];
+        if (!user) {
+          //error component
+          return response.status(403).json({ message: "Email cannot be found" });
+        }
+        // if password doesn't match
+        if (!bcrypt.compareSync(request.body.password, user.password)) {
+          return response.status(403).json({ message: "Wrong password" });
+        }
+        request.session.user_id = user.id
+        console.log({ login: user })
+        // if everything is good send response
+        response.json({ user });
+      })
+      .catch(err => {
+        // render login with error
+        response.status(500).json({ error: err.message });
+      });
     });
+
   //get all tweets
   app.get("/tweets", (request, response) => {
     request.session.user_id  = 343
