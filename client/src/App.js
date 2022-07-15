@@ -65,7 +65,7 @@ function App() {
                 mt="25px"
                 mb="27px"
               >
-                Join Spill the Tea today.{" "}
+                Join Spill the Tea today.
               </Heading>
             </Flex>
             <Button
@@ -79,11 +79,11 @@ function App() {
               mb="20px"
               bg="transparent"
             >
-              Already have an account?{" "}
+              Already have an account?
               <Link color="#de5f2b" href="/login">
                 Sign in
               </Link>
-            </Button>{" "}
+            </Button>
             <Button
               borderRadius="20px"
               border="1px solid #dadce0"
@@ -93,10 +93,11 @@ function App() {
               padding="0 12px"
               color="#d5a67c"
               bg="transparent"
+              
             >
-              Create a new account?{" "}
+              Create a new account?
               <Link color="#de5f2b" href="/register">
-                Register{" "}
+                Register
               </Link>
             </Button>
           </Flex>
@@ -121,7 +122,7 @@ function App() {
                 href="https://github.com/AnisaHMohamed"
                 isExternal
               >
-                AnisaHMohamed{" "}
+                AnisaHMohamed
               </Link>
             </Stack>
             <Stack align={"flex-start"}>
@@ -131,12 +132,12 @@ function App() {
                 href="https://www.linkedin.com/in/anisa-mohamed/"
                 isExternal
               >
-                Anisa Mohamed{" "}
+                Anisa Mohamed
               </Link>
             </Stack>
           </SimpleGrid>
         </Container>
-      </Box>{" "}
+      </Box>
     </>
   );
 }
