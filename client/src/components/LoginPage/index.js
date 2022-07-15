@@ -36,7 +36,7 @@ const App = () => {
       .then((response) => {
         console.log(response);
       })
-      .catch( (error)=> {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -53,7 +53,6 @@ const App = () => {
       }
       backgroundRepeat="no-repeat"
       backgroundSize=" 100% 100%"
-
     >
       <Stack
         flexDir="column"
@@ -123,7 +122,7 @@ const App = () => {
           </form>
         </Box>
       </Stack>
-      <Box color="orange.200" >
+      <Box color="orange.200">
         New to us?{" "}
         <Link color="orange.100" href="/register">
           Sign Up
