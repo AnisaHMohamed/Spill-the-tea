@@ -1,26 +1,16 @@
-import {useState, useEffect} from 'react'
-import './App.css';
-import axios from 'axios'
+import "./App.css";
+import LoginPage from "./components/LoginPage";
+import {  Box } from "@chakra-ui/react";
 
 function App() {
-  const [tweets, setTweets] = useState([]);
-
-useEffect(() =>{
-  axios.get(`/tweets`).then((res) => {
-    console.log(res)
-        setTweets(res.data);
-      })
-},[])
-
 
   return (
     <div className="App">
-      <header className="App-header">
-      <p>
-     {tweets}
-        </p>
-     
-      </header>
+   
+        <Box height="100%" backgroundColor="#262424">
+          <LoginPage />
+        </Box>
+    
     </div>
   );
 }
