@@ -116,14 +116,18 @@ function App() {
             </Stack>
             <Stack align={"flex-start"}>
               <ListHeader>Github</ListHeader>
-              <Link color="#de5f2b" href="https://github.com/AnisaHMohamed" isExternal>
+              <Link
+                color="#de5f2b"
+                href="https://github.com/AnisaHMohamed"
+                isExternal
+              >
                 AnisaHMohamed{" "}
               </Link>
             </Stack>
             <Stack align={"flex-start"}>
               <ListHeader>LinkedIn</ListHeader>
               <Link
-              color="#de5f2b"
+                color="#de5f2b"
                 href="https://www.linkedin.com/in/anisa-mohamed/"
                 isExternal
               >
