@@ -53,8 +53,12 @@ const App = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <CFaCoffee color="teal.500" h="48px" w="48px" />
-        <Heading color="teal.400">Login</Heading>
+      <Flex>
+      <Heading color="teal.400" mr="20px">
+        Spill the tea
+      </Heading>
+      <CFaCoffee color="teal.500" h="48px" w="48px" />
+    </Flex>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form onSubmit={loginUser}>
             <Stack

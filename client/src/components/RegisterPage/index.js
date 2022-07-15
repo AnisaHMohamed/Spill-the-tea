@@ -57,8 +57,12 @@ const App = () => {
         justifyContent="center"
         alignItems="center"
       >
+      <Flex>
+      <Heading color="teal.400" mr="20px">
+        Spill the tea
+      </Heading>
       <CFaCoffee color="teal.500" h="48px" w="48px" />
-      <Heading color="teal.400">Create a new account</Heading>
+    </Flex>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form onSubmit={registerNewUser}>
             <Stack
